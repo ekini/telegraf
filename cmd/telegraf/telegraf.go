@@ -8,6 +8,9 @@ import (
 	"os/signal"
 	"strings"
 
+	"net/http"
+	_ "net/http/pprof"
+
 	"github.com/influxdb/telegraf"
 	_ "github.com/influxdb/telegraf/outputs/all"
 	_ "github.com/influxdb/telegraf/plugins/all"
@@ -99,6 +102,9 @@ func main() {
 
 	if *fDebug {
 		ag.Debug = true
+		go func() {
+			log.Println(http.ListenAndServe("localhost:60600", nil))
+		}()
 	}
 
 	outputs, err := ag.LoadOutputs(outputFilters, config)
