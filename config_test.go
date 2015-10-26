@@ -40,7 +40,7 @@ type test struct {
 	StringField     string
 	IntegerField    int
 	FloatField      float32
-	BooleanField    bool
+	BooleansField   bool `toml:"boolean_field"`
 	DatetimeField   time.Time
 	ArrayField      []string
 	TableArrayField []subTest
@@ -67,7 +67,7 @@ func (s *MergeStructSuite) SetupTest() {
 		StringField:   "one",
 		IntegerField:  1,
 		FloatField:    1.1,
-		BooleanField:  false,
+		BooleansField: false,
 		DatetimeField: time.Date(1963, time.August, 28, 17, 0, 0, 0, time.UTC),
 		ArrayField:    []string{"one", "two", "three"},
 		TableArrayField: []subTest{
@@ -85,7 +85,7 @@ func (s *MergeStructSuite) SetupTest() {
 		StringField:   "two",
 		IntegerField:  2,
 		FloatField:    2.2,
-		BooleanField:  true,
+		BooleansField: true,
 		DatetimeField: time.Date(1965, time.March, 25, 17, 0, 0, 0, time.UTC),
 		ArrayField:    []string{"four", "five", "six"},
 		TableArrayField: []subTest{
@@ -114,7 +114,7 @@ func (s *MergeStructSuite) TestFullMerge() {
 		StringField:   "two",
 		IntegerField:  2,
 		FloatField:    2.2,
-		BooleanField:  true,
+		BooleansField: true,
 		DatetimeField: time.Date(1965, time.March, 25, 17, 0, 0, 0, time.UTC),
 		ArrayField:    []string{"one", "two", "three", "four", "five", "six"},
 		TableArrayField: []subTest{
@@ -149,7 +149,7 @@ func (s *MergeStructSuite) TestPartialMergeWithoutSlices() {
 		StringField:   "two",
 		IntegerField:  1,
 		FloatField:    2.2,
-		BooleanField:  false,
+		BooleansField: false,
 		DatetimeField: time.Date(1965, time.March, 25, 17, 0, 0, 0, time.UTC),
 		ArrayField:    []string{"one", "two", "three"},
 		TableArrayField: []subTest{
@@ -176,7 +176,7 @@ func (s *MergeStructSuite) TestPartialMergeWithSlices() {
 		StringField:   "two",
 		IntegerField:  1,
 		FloatField:    2.2,
-		BooleanField:  false,
+		BooleansField: false,
 		DatetimeField: time.Date(1965, time.March, 25, 17, 0, 0, 0, time.UTC),
 		ArrayField:    []string{"one", "two", "three"},
 		TableArrayField: []subTest{
