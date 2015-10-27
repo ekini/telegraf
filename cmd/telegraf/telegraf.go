@@ -88,7 +88,11 @@ func main() {
 	if *fConfigDirectory != "" {
 		err = config.LoadDirectory(*fConfigDirectory)
 		if err != nil {
-			log.Fatal(err)
+			if os.IsNotExist(err) {
+				log.Println(err)
+			} else {
+				log.Fatal(err)
+			}
 		}
 	}
 

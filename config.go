@@ -4,6 +4,7 @@ import (
 	"errors"
 	"fmt"
 	"io/ioutil"
+	"os"
 	"path/filepath"
 	"reflect"
 	"sort"
@@ -420,6 +421,13 @@ func mergeStruct(base, overlay interface{}, fields []string) error {
 }
 
 func (c *Config) LoadDirectory(path string) error {
+	if fileInfo, err := os.Stat(path); err != nil {
+		return err
+	} else {
+		if !fileInfo.IsDir() {
+			return fmt.Errorf("'%s' is not a directory", path)
+		}
+	}
 	directoryEntries, err := ioutil.ReadDir(path)
 	if err != nil {
 		return err
