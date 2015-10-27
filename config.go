@@ -376,9 +376,19 @@ func findField(fieldName string, value reflect.Value) reflect.Value {
 	vType := value.Type()
 	for i := 0; i < vType.NumField(); i++ {
 		fieldType := vType.Field(i)
-		tag := fieldType.Tag.Get("toml")
-		if tag == fieldName || strings.ToLower(fieldType.Name) == strings.ToLower(r.Replace(fieldName)) {
-			return value.Field(i)
+
+		// if we have toml tag, use it
+		if tag := fieldType.Tag.Get("toml"); tag != "" {
+			if tag == "-" { // omit
+				continue
+			}
+			if tag == fieldName {
+				return value.Field(i)
+			}
+		} else {
+			if strings.ToLower(fieldType.Name) == strings.ToLower(r.Replace(fieldName)) {
+				return value.Field(i)
+			}
 		}
 	}
 	return reflect.Value{}
