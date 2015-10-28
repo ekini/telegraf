@@ -1,9 +1,6 @@
 {
 	"ImportPath": "github.com/influxdb/telegraf",
-	"GoVersion": "go1.5.1",
-	"Packages": [
-		"./..."
-	],
+	"GoVersion": "go1.5",
 	"Deps": [
 		{
 			"ImportPath": "git.eclipse.org/gitroot/paho/org.eclipse.paho.mqtt.golang.git",
@@ -101,6 +98,16 @@
 			"Rev": "d1e82c1ec3f15ee991f7cc7ffd5b67ff6f5bbaee"
 		},
 		{
+			"ImportPath": "github.com/howeyc/fsnotify",
+			"Comment": "v0.9.0-16-gf0c08ee",
+			"Rev": "f0c08ee9c60704c1879025f2ae0ff3e000082c13"
+		},
+		{
+			"ImportPath": "github.com/hpcloud/tail",
+			"Comment": "v0-29-g0f28969",
+			"Rev": "0f289693ec9e9b6a605d7ad1262a8d8c4338ed77"
+		},
+		{
 			"ImportPath": "github.com/influxdb/influxdb",
 			"Comment": "v0.9.4-rc1-703-g956efae",
 			"Rev": "956efaeb94ee57ecd8dc23e2f654b5231204e28f"
@@ -115,12 +122,22 @@
 			"Rev": "fc2b8d3a73c4867e51861bbdd5ae3c1f0869dd6a"
 		},
 		{
+			"ImportPath": "github.com/mreiferson/go-snappystream",
+			"Comment": "v0.2.3",
+			"Rev": "028eae7ab5c4c9e2d1cb4c4ca1e53259bbe7e504"
+		},
+		{
 			"ImportPath": "github.com/naoina/go-stringutil",
 			"Rev": "360db0db4b01d34e12a2ec042c09e7d37fece761"
 		},
 		{
 			"ImportPath": "github.com/naoina/toml",
 			"Rev": "5811abcabb29d6af0fdf060f96d328962bd3cd5e"
+		},
+		{
+			"ImportPath": "github.com/nsqio/go-nsq",
+			"Comment": "v1.0.5-6-g2118015",
+			"Rev": "2118015c120962edc5d03325c680daf3163a8b5f"
 		},
 		{
 			"ImportPath": "github.com/pborman/uuid",
@@ -253,23 +270,22 @@
 			"Rev": "cba550ebf9bce999a02e963296d4bc7a486cb715"
 		},
 		{
+			"ImportPath": "gopkg.in/fsnotify.v1",
+			"Comment": "v1.2.1",
+			"Rev": "7be54206639f256967dd82fa767397ba5f8f48f5"
+		},
+		{
 			"ImportPath": "gopkg.in/mgo.v2",
 			"Comment": "r2015.06.03-3-g3569c88",
 			"Rev": "3569c88678d88179dcbd68d02ab081cbca3cd4d0"
 		},
 		{
+			"ImportPath": "gopkg.in/tomb.v1",
+			"Rev": "dd632973f1e7218eb1089048e0798ec9ae7dceb8"
+		},
+		{
 			"ImportPath": "gopkg.in/yaml.v2",
 			"Rev": "7ad95dd0798a40da1ccdff6dff35fd177b5edf40"
-		},
-		{
-			"ImportPath": "github.com/mreiferson/go-snappystream",
-			"Comment": "v0.2.3",
-			"Rev": "028eae7ab5c4c9e2d1cb4c4ca1e53259bbe7e504"
-		},
-		{
-			"ImportPath": "github.com/nsqio/go-nsq",
-			"Comment": "v1.0.5-6-g2118015",
-			"Rev": "2118015c120962edc5d03325c680daf3163a8b5f"
 		}
 	]
 }
