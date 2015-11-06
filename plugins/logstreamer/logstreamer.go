@@ -106,6 +106,8 @@ func (l *Logstreamer) addMetric(metric logstream.Metric, acc plugins.Accumulator
 
 			return fmt.Errorf("Can't parse '%s:%s' as numeric value", key, value, err)
 
+		} else if strings.HasSuffix(key, "_string_value") {
+			values[strings.TrimSuffix(key, "_string_value")] = value
 		} else {
 			tags[key] = value
 		}

@@ -7,8 +7,8 @@ import (
 
 	log "github.com/Sirupsen/logrus"
 
-	"github.com/ekini/tail"
 	"github.com/howeyc/fsnotify"
+	"github.com/hpcloud/tail"
 )
 
 func walkLogDir(dir string) (files []string, err error) {
