@@ -78,6 +78,7 @@ func WatchFiles(dirs []string, groups []Group, continuous, readOnce bool) chan M
 
 func assignFiles(files []string, groups []Group) (outFiles []*File, err error) {
 	for n, group := range groups {
+		group := group
 		log.Debugf("Assigning files for group: %s", group.Mask)
 		var assignedFiles []*File
 		if group.Name == "" {
