@@ -91,7 +91,9 @@ func (l *Logstreamer) addMetric(metric logstream.Metric, acc plugins.Accumulator
 
 	for key, value := range metric.Match {
 		key = strings.ToLower(key)
-		if strings.HasSuffix(key, "_value") {
+		if strings.HasSuffix(key, "_string_value") {
+			values[strings.TrimSuffix(key, "_string_value")] = value
+		} else if strings.HasSuffix(key, "_value") {
 			// try to parse numerical value
 			i, err := strconv.ParseInt(value, 10, 64)
 			if err == nil {
@@ -105,9 +107,6 @@ func (l *Logstreamer) addMetric(metric logstream.Metric, acc plugins.Accumulator
 			}
 
 			return fmt.Errorf("Can't parse '%s:%s' as numeric value", key, value, err)
-
-		} else if strings.HasSuffix(key, "_string_value") {
-			values[strings.TrimSuffix(key, "_string_value")] = value
 		} else {
 			tags[key] = value
 		}
